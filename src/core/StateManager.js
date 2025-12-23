@@ -15,6 +15,12 @@
 
 export class StateManager {
     constructor() {
+        // localStorage key
+        this.storageKey = 'calculator-state';
+
+        // Maximum history size
+        this.maxHistorySize = 100;
+
         // Default state
         this.defaultState = {
             currentValue: '',
@@ -30,12 +36,6 @@ export class StateManager {
 
         // Subscribers for state changes
         this.subscribers = [];
-
-        // Maximum history size
-        this.maxHistorySize = 100;
-
-        // localStorage key
-        this.storageKey = 'calculator-state';
     }
 
     /**
