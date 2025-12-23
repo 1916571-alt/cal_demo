@@ -146,10 +146,10 @@ export class StateManager {
                 return {
                     currentValue: '',  // Always start fresh
                     previousEquation: '',  // Always start fresh
-                    angleMode: parsed.angleMode || this.defaultState.angleMode,
-                    theme: parsed.theme || this.defaultState.theme,
-                    mode: parsed.mode || this.defaultState.mode,
-                    history: parsed.history || []
+                    angleMode: parsed.angleMode !== undefined ? parsed.angleMode : this.defaultState.angleMode,
+                    theme: parsed.theme !== undefined ? parsed.theme : this.defaultState.theme,
+                    mode: parsed.mode !== undefined ? parsed.mode : this.defaultState.mode,
+                    history: parsed.history !== undefined ? parsed.history : []
                 };
             }
         } catch (error) {

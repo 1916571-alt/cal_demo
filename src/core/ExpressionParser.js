@@ -162,6 +162,10 @@ export class ExpressionParser {
         // Match: digit or ) followed by (
         result = result.replace(/(\d|\))(\()/g, '$1*$2');
 
+        // Closing parenthesis before digit
+        // Match: ) followed by digit
+        result = result.replace(/\)(\d)/g, ')*$1');
+
         // Number or ) before function name
         // Match: digit or ) followed by function name
         for (const func of this.functions) {
