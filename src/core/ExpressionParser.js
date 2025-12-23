@@ -156,16 +156,16 @@ export class ExpressionParser {
 
         // Number or ) before constant (π, e)
         // Match: digit or ) followed by constant
-        result = result.replace(/(\d|\.|\))([πe])/g, '$1*$2');
+        result = result.replace(/(\d|\))([πe])/g, '$1*$2');
 
         // Number or ) before opening parenthesis
         // Match: digit or ) followed by (
-        result = result.replace(/(\d|\.|\))(\()/g, '$1*$2');
+        result = result.replace(/(\d|\))(\()/g, '$1*$2');
 
         // Number or ) before function name
         // Match: digit or ) followed by function name
         for (const func of this.functions) {
-            const regex = new RegExp(`(\\d|\\.|\\))(${func})`, 'g');
+            const regex = new RegExp(`(\d|\))(${func})`, 'g');
             result = result.replace(regex, '$1*$2');
         }
 

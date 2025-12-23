@@ -104,6 +104,12 @@ export class CalculatorEngine {
         processed = processed.replace(/π/g, 'pi');
         processed = processed.replace(/\be\b/g, 'e');
 
+        // Replace log with log10 (base-10 logarithm)
+        processed = processed.replace(/\blog\(/g, 'log10(');
+
+        // Replace ln with log (natural logarithm in math.js)
+        processed = processed.replace(/\bln\(/g, 'log(');
+
         // Handle trigonometric functions based on angle mode
         if (this.angleMode === 'DEG') {
             // Convert degrees to radians for trig functions

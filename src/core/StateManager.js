@@ -142,12 +142,14 @@ export class StateManager {
             if (saved) {
                 const parsed = JSON.parse(saved);
                 // Merge with default state to handle new properties
+                // But preserve saved values (don't overwrite with defaults)
                 return {
-                    ...this.defaultState,
-                    ...parsed,
-                    // Don't persist these values
-                    currentValue: '',
-                    previousEquation: ''
+                    currentValue: '',  // Always start fresh
+                    previousEquation: '',  // Always start fresh
+                    angleMode: parsed.angleMode || this.defaultState.angleMode,
+                    theme: parsed.theme || this.defaultState.theme,
+                    mode: parsed.mode || this.defaultState.mode,
+                    history: parsed.history || []
                 };
             }
         } catch (error) {
