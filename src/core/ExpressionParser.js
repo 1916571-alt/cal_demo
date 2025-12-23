@@ -165,7 +165,7 @@ export class ExpressionParser {
         // Number or ) before function name
         // Match: digit or ) followed by function name
         for (const func of this.functions) {
-            const regex = new RegExp(`(\d|\))(${func})`, 'g');
+            const regex = new RegExp(`(\\d|\\))(${func})`, 'g');
             result = result.replace(regex, '$1*$2');
         }
 

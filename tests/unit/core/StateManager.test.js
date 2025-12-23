@@ -45,8 +45,8 @@ describe('StateManager', () => {
             const sm = new StateManager();
             const state = sm.getState();
 
-            expect(state.angleMode).toBe('RAD');
-            expect(state.theme).toBe('light');
+            expect(state.angleMode).toBe('RAD');  // Should load saved value
+            expect(state.theme).toBe('light');     // Should load saved value
             expect(state.history).toEqual([{ equation: '2+2', result: '4' }]);
         });
     });
